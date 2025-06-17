@@ -14,32 +14,24 @@
 </head>
 <body>
     <div class="container">
-        <h1>Privacy Policy</h1>
-        <p>Last updated: June 17, 2025</p>
+        <h1>Privacy Policy (Chính sách Bảo mật)</h1>
+        <p>Cập nhật lần cuối: 17 tháng 6, 2025</p>
 
         <h2>1. Introduction</h2>
-        <p>This application ("the App") is a personal, server-side bot designed for the sole purpose of automating video uploads for its owner. This policy outlines how data is handled within this limited scope.</p>
+        <p>Ứng dụng này ("App") là một bot cá nhân, hoạt động phía máy chủ được thiết kế cho mục đích duy nhất là tự động hóa việc tải video lên cho chủ sở hữu của nó. Chính sách này nêu rõ cách dữ liệu được xử lý trong phạm vi giới hạn này.</p>
 
         <h2>2. Data We Access</h2>
-        <p>To perform its function, the App requires access to the following data, granted solely by its owner:</p>
+        <p>Để thực hiện chức năng của mình, App yêu cầu quyền truy cập vào dữ liệu sau, được cấp phép duy nhất bởi chủ sở hữu:</p>
         <ul>
-            <li><strong>TikTok Account Access:</strong> The App uses an OAuth 2.0 token to gain permission to upload videos to the owner's TikTok account. It only requests the `video.upload` scope.</li>
-            <li><strong>Google Drive Access:</strong> The App uses an OAuth 2.0 token to access and read video files from a specific, pre-authorized folder in the owner's Google Drive.</li>
+            <li><strong>TikTok Account Access:</strong> App sử dụng token OAuth 2.0 để được cấp quyền tải video lên tài khoản TikTok của chủ sở hữu. App chỉ yêu cầu quyền (scope) `video.upload`.</li>
+            <li><strong>Google Drive Access:</strong> App sử dụng token OAuth 2.0 để truy cập và đọc các tệp video từ một thư mục cụ thể, được ủy quyền trước trong Google Drive của chủ sở hữu.</li>
         </ul>
 
         <h2>3. How We Use Data</h2>
-        <p>The accessed data is used exclusively for the App's single function:</p>
-        <ol>
-            <li>The App runs on a schedule (via AWS Lambda).</li>
-            <li>It authenticates with the Google Drive API to download a single video file.</li>
-            <li>It then authenticates with the TikTok API to upload that video file.</li>
-        </ol>
-
-        <h2>4. Data Storage and Security</h2>
-        <p>Authentication tokens (for TikTok and Google Drive) are stored securely as encrypted environment variables in the AWS Lambda environment. Video files are processed in-memory and are not stored on any server after the upload process is complete.</p>
+        <p>Dữ liệu được truy cập chỉ được sử dụng riêng cho chức năng duy nhất của App: tải xuống một tệp video từ Google Drive và sau đó tải tệp đó lên TikTok.</p>
         
-        <h2>5. Data Sharing</h2>
-        <p>No data is ever collected from users or shared with any third party. The App does not have any users other than its owner/developer. The data flow is strictly between the owner's authorized services.</p>
+        <h2>4. Data Storage and Sharing</h2>
+        <p>Mã xác thực (token) được lưu trữ an toàn dưới dạng biến môi trường được mã hóa trong môi trường AWS Lambda. Các tệp video được xử lý tạm thời và không được lưu trữ trên bất kỳ máy chủ nào sau khi quá trình tải lên hoàn tất. Không có dữ liệu nào được chia sẻ với bất kỳ bên thứ ba nào.</p>
     </div>
 </body>
 </html>
