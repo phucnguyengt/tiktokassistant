@@ -3,69 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chính sách Bảo mật</title>
+    <title>Privacy Policy</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f4f5f7;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 30px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #1a1a1a;
-        }
-        h2 {
-            color: #2c2c2c;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 5px;
-            margin-top: 30px;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 0.9em;
-            color: #777;
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; background-color: #f4f5f7; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: 40px auto; padding: 30px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { color: #1a1a1a; }
+        h2 { color: #2c2c2c; border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 30px; }
+        ul { padding-left: 20px; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Chính sách Bảo mật</h1>
-        <p>Cập nhật lần cuối: 17 tháng 6, 2025</p>
+        <h1>Privacy Policy</h1>
+        <p>Last updated: June 17, 2025</p>
 
-        <h2>1. Giới thiệu</h2>
-        <p>Ứng dụng này ("App") là một bot cá nhân, hoạt động phía máy chủ. Chức năng duy nhất của nó là tự động hóa quy trình đăng tải nội dung video của chủ sở hữu từ một thư mục Google Drive riêng tư lên tài khoản TikTok được chỉ định của chính chủ sở hữu đó.</p>
+        <h2>1. Introduction</h2>
+        <p>This application ("the App") is a personal, server-side bot designed for the sole purpose of automating video uploads for its owner. This policy outlines how data is handled within this limited scope.</p>
 
-        <h2>2. Thu thập và Sử dụng Dữ liệu</h2>
-        <p>App không thu thập, lưu trữ hay xử lý bất kỳ dữ liệu cá nhân nào từ khách truy cập hoặc bên thứ ba.</p>
+        <h2>2. Data We Access</h2>
+        <p>To perform its function, the App requires access to the following data, granted solely by its owner:</p>
         <ul>
-            <li><strong>Dữ liệu của Chủ sở hữu:</strong> App chỉ tương tác với dữ liệu thuộc về chủ sở hữu, bao gồm:
-                <ul>
-                    <li>Mã xác thực (token) cho Google Drive và TikTok, được lưu trữ an toàn dưới dạng biến môi trường.</li>
-                    <li>Các tệp video nằm trong một thư mục Google Drive cụ thể đã được cấp phép trước.</li>
-                </ul>
-            </li>
-            <li><strong>Mục đích sử dụng:</strong> Dữ liệu của chủ sở hữu chỉ được sử dụng duy nhất cho chức năng cốt lõi của App: tải video từ Google Drive và đăng lên TikTok.</li>
+            <li><strong>TikTok Account Access:</strong> The App uses an OAuth 2.0 token to gain permission to upload videos to the owner's TikTok account. It only requests the `video.upload` scope.</li>
+            <li><strong>Google Drive Access:</strong> The App uses an OAuth 2.0 token to access and read video files from a specific, pre-authorized folder in the owner's Google Drive.</li>
         </ul>
 
-        <h2>3. Chia sẻ Dữ liệu</h2>
-        <p>Không có bất kỳ dữ liệu nào được chia sẻ với bên thứ ba. Toàn bộ quy trình được giới hạn giữa các dịch vụ được ủy quyền của chủ sở hữu (Google Drive, AWS Lambda) và tài khoản TikTok của họ.</p>
-    </div>
-     <div class="footer">
-        <p>&copy; 2025 Tên Bot hoặc Tên của bạn</p>
+        <h2>3. How We Use Data</h2>
+        <p>The accessed data is used exclusively for the App's single function:</p>
+        <ol>
+            <li>The App runs on a schedule (via AWS Lambda).</li>
+            <li>It authenticates with the Google Drive API to download a single video file.</li>
+            <li>It then authenticates with the TikTok API to upload that video file.</li>
+        </ol>
+
+        <h2>4. Data Storage and Security</h2>
+        <p>Authentication tokens (for TikTok and Google Drive) are stored securely as encrypted environment variables in the AWS Lambda environment. Video files are processed in-memory and are not stored on any server after the upload process is complete.</p>
+        
+        <h2>5. Data Sharing</h2>
+        <p>No data is ever collected from users or shared with any third party. The App does not have any users other than its owner/developer. The data flow is strictly between the owner's authorized services.</p>
     </div>
 </body>
 </html>
